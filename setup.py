@@ -11,7 +11,7 @@ setup (
     description='simple linear regression quality',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    author= 'EdelH, Aplatag',
+    author= 'EdelH, Aplata',
     packages=find_packages(),
     install_requires = ['numpy','pandas','statsmodels','scikit-learn','art'],
 
