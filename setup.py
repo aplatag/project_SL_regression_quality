@@ -15,5 +15,5 @@ setup (
     packages=find_packages(),
     install_requires = ['numpy','pandas','statsmodels','scikit-learn','art'],
 
-    url='https://github.com/aplatag/project_em_simulation_2D.git'
+    url='https://github.com/aplatag/project_SL_regression_quality.git'
 )
