@@ -4,8 +4,9 @@ An analysis of the quality of the regression is carried out
 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/aplatag/project_em_simulation_2D/main/images/escenario_GPR.png" alt="methodology" width="500" >
+    <img src="https://raw.githubusercontent.com/aplatag/project_SL_regression_quality/blob/main/images/RlinealMW.jpeg" alt="methodology" width="500" >
 </p>
+
 
 ## Table of Contents
 - [Simple Linear Regression Assumptions](#Simple-Linear-Regression-Assumptions)
