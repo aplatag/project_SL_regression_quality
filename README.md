@@ -4,7 +4,7 @@ An analysis of the quality of the regression is carried out
 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/aplatag/project_SL_regression_quality/blob/main/images/RlinealMW.jpeg" alt="methodology" width="500" >
+    <img src="https://raw.githubusercontent.com/aplatag/project_SL_regression_quality/main/images/RlinealMW.jpeg" alt="methodology" width="500" >
 </p>
 
 
