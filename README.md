@@ -20,13 +20,13 @@ An analysis of the quality of the regression is carried out
 1.  **Outlier**:
 The term anomaly indicates that there is data that deviates significantly from the rest.
 2. **Normality**:
-Normality refers to the normal distribution of errors or residuals.
+refers to the normal distribution of errors or residuals.
 3. **Homoscedasticity**:
-Homoscedasticity is another simple linear regression assumption and indicates whether the variance of the residuals is the same across different groups in the database.
+ is another simple linear regression assumption and indicates whether the variance of the residuals is the same across different groups in the database.
 4. **Independence**:
-Independence refers to the absence of temporal correlation between residuals.
+ refers to the absence of temporal correlation between residuals.
 5. **Linearity**:
-Linearity is associated with the presence of a constant change of the variable to be predicted with respect to the predictor.
+ is associated with the presence of a constant change of the variable to be predicted with respect to the predictor.
 
 ## Simple linear regression Quality
 
