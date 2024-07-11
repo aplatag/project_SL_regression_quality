@@ -50,9 +50,8 @@ from sl_regression_quality.load_data import load_csv
 
 #--------------------------------------------------------------------------------
 # 2) Load data
-
-dataset = pd.read_csv('Data_carne_new.csv') # your data
-df = pd.read_csv('pruebaResolu.csv') # your data
+dataset = load_csv('Data_x_y.csv') # your data
+df = load_csv('Data_y_full.csv') # your data
 
 alpha = 0.05 # significance level
 dL = 1.055 # dL
