@@ -4,7 +4,7 @@ example code for data analysis
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 import pandas as pd 
-from main_routine import sl_regression_quality
+from .main_routine import regression_quality
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -27,4 +27,4 @@ y_res = df.iloc[:,3:6].values
 
 #================================================================================
 
-sl_regression_quality(x,y,alpha,dL,y_res)
+regression_quality(x,y,alpha,dL,y_res)

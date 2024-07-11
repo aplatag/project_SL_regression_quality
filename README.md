@@ -36,7 +36,7 @@ refers to the normal distribution of errors or residuals.
 Instructions on how to install the project. For example:
 ```bash
 
-pip install SL-regression-quality
+pip install sl-regression-quality
 ```
 ## Code Example
 For instance, the following code can be executed in Google Colab. Simply copy and paste it into a new Colab notebook.
@@ -44,15 +44,18 @@ For instance, the following code can be executed in Google Colab. Simply copy an
 
 #--------------------------------------------------------------------------------
 # 1) Load libraries:
-import pandas as pd 
-from main_routine import sl_regression_quality
+import pandas as pd
+from sl_regression_quality.main_routine import regression_quality
+from sl_regression_quality.load_data import load_csv
 
 #--------------------------------------------------------------------------------
 # 2) Load data
-dataset = pd.read_csv('../data/Data_carne_new.csv')
-df = pd.read_csv('../data/pruebaResolu.csv')
-alpha = 0.05
-dL = 1.055
+
+dataset = pd.read_csv('Data_carne_new.csv') # your data
+df = pd.read_csv('pruebaResolu.csv') # your data
+
+alpha = 0.05 # significance level
+dL = 1.055 # dL
 
 # Total:
 x=dataset.iloc[:27,1:2].values
@@ -60,6 +63,6 @@ y=dataset.iloc[:27,2:3].values
 y_res = df.iloc[:,3:6].values
 #--------------------------------------------------------------------------------
 # 3) Run analysis
-sl_regression_quality(x,y,alpha,dL,y_res)
+regression_quality(x,y,alpha,dL,y_res)
 
 ```

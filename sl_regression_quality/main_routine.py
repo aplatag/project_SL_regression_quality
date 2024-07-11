@@ -9,16 +9,16 @@ Calls all functions and classes to generate the complete analysis:
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 from art import text2art
 
-from outlier_detection import OutlierDetection
-from metrics import Metrics
-from parameters import Parameters
-from resolution import resolution
-from user_messages import parameters_messages
-from global_constants import BLUE,  RESET
+from .outlier_detection import OutlierDetection
+from .metrics import Metrics
+from .parameters import Parameters
+from .resolution import resolution
+from .user_messages import parameters_messages
+from .global_constants import BLUE,  RESET
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-def sl_regression_quality(x,y,alpha,dL,y_extended):
+def regression_quality(x,y,alpha,dL,y_extended):
     space_1 = '            '
     space_2 = '                  '
     art_text1 = text2art("SIMPLE    LINEAR") 
