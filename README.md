@@ -31,7 +31,7 @@ refers to the normal distribution of errors or residuals.
 ## Simple linear regression Quality
 
 ## Database structure
-The first columns of the database correspond to the repetitions performed for variable x. Once all repetitions for variable x are completed, the repetitions for variable y are recorded.
+The first columns of the database correspond to the repetitions performed for variable x. Once all repetitions for variable x are completed, the repetitions for variable y are recorded. The following image shows an example of how to organize the data before using the "regression_quality" program. The database includes three repetitions for variable "x" and four for variable "y."
 
 
 <p align="center">
