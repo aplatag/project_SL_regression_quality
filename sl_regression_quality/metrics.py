@@ -23,11 +23,12 @@ from .global_constants import GREEN, RED,  RESET
 
 
 class Metrics:
-    def __init__(self,data_x,data_y,significance_level,value_dl) -> None:
+    def __init__(self,data_x,data_y,significance_level,value_dl,value_du) -> None:
         self.data_x = data_x
         self.data_y = data_y
         self.alpha = significance_level
         self.value_dl = value_dl
+        self.value_du = value_du
 
         self.model_RLS = None
         self.standardized_residuals = None
@@ -106,17 +107,32 @@ class Metrics:
 
     def independence(self):
         value_dL = self.value_dl
+        value_dU = self.value_du
 
         #main:
         value_independence = durbin_watson(self.model_RLS.resid)
 
         #1) validation:
-        if value_independence  > value_dL:
-            print('1.2.4)'+GREEN+ 'Satisfies independence '+RESET)
-            enable_independence  = True
-        else:
-            print('1.2.4)'+RED+'Does not satisfies independence '+RESET)
-            enable_independence  = False
+        if value_independence <2:
+            if value_independence >value_dU:
+                print('1.2.4)'+GREEN+ 'There is independence'+RESET)
+                enable_independence  = True
+            elif value_independence <value_dL:
+                print('1.2.4)'+RED+'There is not independence'+RESET)
+                enable_independence  = False
+            else:
+                print('1.2.4)'+RED+"Test is inconclusive"+RESET)
+                enable_independence  = False
+        elif value_independence >2:
+            if (4-value_independence)>value_dU:
+                print('1.2.4)'+GREEN+ 'There is independence'+RESET)
+                enable_independence  = True
+            elif (4-value_independence)<value_dL:
+                print('1.2.4)'+RED+'There is not independence'+RESET)
+                enable_independence  = False
+            else:
+                print('1.2.4)'+RED+"Test is inconclusive"+RESET)
+                enable_independence  = False
 
         return enable_independence
 

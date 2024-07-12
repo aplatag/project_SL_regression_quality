@@ -30,6 +30,14 @@ refers to the normal distribution of errors or residuals.
 
 ## Simple linear regression Quality
 
+## Database structure
+The first columns of the database correspond to the repetitions performed for variable x. Once all repetitions for variable x are completed, the repetitions for variable y are recorded.
+
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/aplatag/project_SL_regression_quality/main/images/example_dataset.png" alt="database" width="500" >
+</p>
+
 
 ## Installation
 
@@ -50,18 +58,17 @@ from sl_regression_quality.load_data import load_csv
 
 #--------------------------------------------------------------------------------
 # 2) Load data
-dataset = load_csv('Data_x_y.csv') # your data
-df = load_csv('Data_y_full.csv') # your data
+#dataset = load_csv('data_x_y_example.csv') # example data (uncomment line)
+#dataset = pd.read_csv('Data_y_full.csv') # example for your data (uncomment line)
 
+
+number_repetitions_x = 3 # number of repetitions in x
 alpha = 0.05 # significance level
 dL = 1.055 # dL
+dU = 1.211 # dU
 
-# Total:
-x=dataset.iloc[:27,1:2].values
-y=dataset.iloc[:27,2:3].values
-y_res = df.iloc[:,3:6].values
 #--------------------------------------------------------------------------------
 # 3) Run analysis
-regression_quality(x,y,alpha,dL,y_res)
+regression_quality(dataset,number_repetitions_x,alpha,dL,dU)
 
 ```

@@ -8,6 +8,7 @@ Calls all functions and classes to generate the complete analysis:
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 from art import text2art
+import numpy as np
 
 from .outlier_detection import OutlierDetection
 from .metrics import Metrics
@@ -18,7 +19,8 @@ from .global_constants import BLUE,  RESET
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-def regression_quality(x,y,alpha,dL,y_extended):
+def regression_quality(df_full,number_repetitions_x,alpha,dL,dU):
+
     space_1 = '            '
     space_2 = '                  '
     art_text1 = text2art("SIMPLE    LINEAR") 
@@ -28,6 +30,17 @@ def regression_quality(x,y,alpha,dL,y_extended):
     print(art_text1)
     print(art_text2)
     print(art_text3)
+    
+    #------------------------------------------------------------------------------------
+    # first organize data: 
+    x_extended = df_full.iloc[:,0:number_repetitions_x].values
+    x = np.mean(x_extended,axis=1)
+    x = x.reshape(x_extended.shape[0],1)
+
+    y_extended = df_full.iloc[:,number_repetitions_x:].values
+    y = np.mean(y_extended, axis=1)
+    y = y.reshape(y_extended.shape[0],1)
+
     #------------------------------------------------------------------------------------
     # 1) part:
     print(BLUE+'===='*20+RESET)
@@ -39,7 +52,7 @@ def regression_quality(x,y,alpha,dL,y_extended):
 
     # 2) part:
     print('part 1.2, Verification of: ')
-    enable_metrics = Metrics(new_x,new_y,alpha,dL).run()
+    enable_metrics = Metrics(new_x,new_y,alpha,dL,dU).run()
 
     # 3) part:
     print(BLUE+'===='*20+RESET)
