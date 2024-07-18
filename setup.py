@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup (
     name='sl_regression_quality',
-    version='0.3.8',
+    version='0.3.9',
     license='MIT',
     description='simple linear regression quality',
     long_description=long_description,

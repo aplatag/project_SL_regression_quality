@@ -15,7 +15,7 @@ from .metrics import Metrics
 from .parameters import Parameters
 from .resolution import resolution
 from .user_messages import parameters_messages
-from .global_constants import BLUE,  RESET
+from .global_constants import BLUE,  RESET, RED
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -67,4 +67,4 @@ def regression_quality(df_x,df_y,alpha,dL,dU):
         #-----------------------------------------
         parameters_messages(accuracy,res_value,sensitivity,d_range)
     else:
-        print('Not all metrics were met')
+        print(RED +'Not all assumption were met'+RESET)

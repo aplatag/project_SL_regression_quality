@@ -115,20 +115,20 @@ class Metrics:
         #1) validation:
         if value_independence <2:
             if value_independence >value_dU:
-                print('1.2.4)'+GREEN+ 'There is independence'+RESET)
+                print('1.2.4)'+GREEN+ 'Satisfies independence'+RESET)
                 enable_independence  = True
             elif value_independence <value_dL:
-                print('1.2.4)'+RED+'There is not independence'+RESET)
+                print('1.2.4)'+RED+'Does not satisfies independence'+RESET)
                 enable_independence  = False
             else:
                 print('1.2.4)'+RED+"Test is inconclusive"+RESET)
                 enable_independence  = False
         elif value_independence >2:
             if (4-value_independence)>value_dU:
-                print('1.2.4)'+GREEN+ 'There is independence'+RESET)
+                print('1.2.4)'+GREEN+ 'Satisfies independence'+RESET)
                 enable_independence  = True
             elif (4-value_independence)<value_dL:
-                print('1.2.4)'+RED+'There is not independence'+RESET)
+                print('1.2.4)'+RED+'Does not satisfies independence'+RESET)
                 enable_independence  = False
             else:
                 print('1.2.4)'+RED+"Test is inconclusive"+RESET)
@@ -139,22 +139,50 @@ class Metrics:
 #-----------------------------------------------------------------------------------------
     def run(self):
         print('----'*20)
-        #1) linearity:
-        enable_line = self.linearity()
-        #2) normality:
-        if enable_line:
-            enable_norm = self.normality()
 
-            if enable_norm:
-                enable_homo = self.homocedasticity()
+        # 1) normality
+        # 2) homoscedasticity
+        # 3) independence 
+        # 4) linearlity
 
-                if enable_homo:
-                    enable_inde = self.independence()
-                    return enable_inde
+        enable_norm = self.normality()
+
+        if enable_norm:
+            enable_homo = self.homocedasticity()
+            if enable_homo:
+                enable_inde = self.independence()
+                if enable_inde:
+                    enable_line = self.linearity()
+                    return enable_line 
                 else:
                     return False
-
-            else:
-                 return False
-        else:
+                
+            else: 
+                return False
+        else: 
             return False
+             
+
+
+
+
+        # #1) linearity:
+        # enable_line = self.linearity()
+        # #2) normality:
+        # if enable_line:
+        #     enable_norm = self.normality()
+
+        #     if enable_norm:
+        #         enable_homo = self.homocedasticity()
+
+        #         if enable_homo:
+        #             enable_inde = self.independence()
+        #             return enable_inde
+        #         else:
+        #             return False
+
+        #     else:
+        #          return False
+        # else:
+        #     return False
+        
