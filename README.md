@@ -71,8 +71,8 @@ from sl_regression_quality.load_data import load_csv
 # 2) Load data . 
 # 2 a) uncomment the following line to load data included in the project (as an example)
 
-#dataset_x = load_csv('data_x_example.csv') # example for your data (uncomment line)
-#dataset_y = load_csv('data_y_example.csv') # example for your data (uncomment line)
+#dataset_x = load_csv('data_x_example.csv') # example data (uncomment line)
+#dataset_y = load_csv('data_y_example.csv') # example data (uncomment line)
 
 # 2 a) uncomment the following line to load the user's data by using the .csv file (described in the Database Structure section)
 
