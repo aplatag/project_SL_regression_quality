@@ -9,8 +9,8 @@ Regarding the quality of the simple linear regression, the dynamic range is calc
     <img src="https://raw.githubusercontent.com/aplatag/project_SL_regression_quality/main/images/RlinealMW.jpeg" alt="methodology" width="500" >
 </p>
 <div align="center">
-**Figure 1**. Flowchart of the proposed methodology.
-<div align="center">
+Figure 1. Flowchart of the proposed methodology.
+</div>
 
 
 ## Table of Contents
@@ -47,8 +47,8 @@ The "regression_quality" program works with two databases. The first database co
     <img src="https://raw.githubusercontent.com/aplatag/project_SL_regression_quality/main/images/example_dataset.png" alt="database" width="500" >
 </p>
 <div align="center">
-**Figure 2**. Example: (a) database for X, and (b) database for Y.
-<div align="center">
+Figure 2. Example: (a) database for X, and (b) database for Y.
+</div>
 
 ## Installation
 
