@@ -19,7 +19,7 @@ from .global_constants import BLUE,  RESET
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-def regression_quality(df_full,number_repetitions_x,alpha,dL,dU):
+def regression_quality(df_x,df_y,alpha,dL,dU):
 
     space_1 = '            '
     space_2 = '                  '
@@ -33,11 +33,11 @@ def regression_quality(df_full,number_repetitions_x,alpha,dL,dU):
     
     #------------------------------------------------------------------------------------
     # first organize data: 
-    x_extended = df_full.iloc[:,0:number_repetitions_x].values
+    x_extended = df_x.iloc[:,:].values
     x = np.mean(x_extended,axis=1)
     x = x.reshape(x_extended.shape[0],1)
 
-    y_extended = df_full.iloc[:,number_repetitions_x:].values
+    y_extended = df_y.iloc[:,:].values
     y = np.mean(y_extended, axis=1)
     y = y.reshape(y_extended.shape[0],1)
 
