@@ -65,14 +65,14 @@ For instance, the following code can be executed in Google Colab. Simply copy an
 # 1) Load libraries:
 import pandas as pd
 from sl_regression_quality.main_routine import regression_quality
-from sl_regression_quality.load_data import load_csv
+from sl_regression_quality.load_data import load_csv, load_csv_example
 
 #--------------------------------------------------------------------------------
 # 2) Load data . 
 # 2 a) uncomment the following line to load data included in the project (as an example)
 
-#dataset_x = load_csv('data_x_example.csv') # example data (uncomment line)
-#dataset_y = load_csv('data_y_example.csv') # example data (uncomment line)
+#dataset_x = load_csv_example('data_x_example.csv') # example data (uncomment line)
+#dataset_y = load_csv_example('data_y_example.csv') # example data (uncomment line)
 
 # 2 a) uncomment the following line to load the user's data by using the .csv file (described in the Database Structure section)
 
