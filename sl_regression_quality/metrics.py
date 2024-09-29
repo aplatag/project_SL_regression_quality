@@ -17,7 +17,7 @@ import numpy as np
 from statsmodels.compat import lzip
 import statsmodels.stats.api as sms
 from statsmodels.stats.stattools import durbin_watson
-from .global_constants import GREEN, RED,  RESET
+from global_constants import GREEN, RED,  RESET
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -52,10 +52,10 @@ class Metrics:
 
         #1) validation:
         if value_linearity < self.alpha:
-            print('1.2.1)'+GREEN+'Satisfies linearity'+RESET)
+            print('1.2.1)'+GREEN+f'Satisfies linearity ({round(value_linearity,4) } < {self.alpha})'+RESET)
             enable_linearity = True
         else:
-            print('1.2.1)'+RED+'Does not satisfies linearity'+RESET)
+            print('1.2.1)'+RED+f'Does not satisfies linearity ({round(value_linearity,4) } < {self.alpha})'+RESET)
             enable_linearity = False
 
 
@@ -77,12 +77,12 @@ class Metrics:
 
         #1) validation:
         if value_normality > self.alpha:
-            print('1.2.2)'+GREEN+ 'Satisfies normality'+RESET)
+            print('1.2.2)'+GREEN+ f'Satisfies normality ({round(value_normality,4)} > {self.alpha})'+RESET)
             enable_normality = True
         else:
-            print('1.2.2)'+RED+ 'Does not satisfies normality'+RESET)
+            print('1.2.2)'+RED+ f'Does not satisfies normality ({round(value_normality,4)} > {self.alpha})'+RESET)
             enable_normality = False
-
+        
         return enable_normality
 #----------------------------------------------------------------------------------
     def homocedasticity(self):
@@ -95,10 +95,10 @@ class Metrics:
 
         #1) validation:
         if value_homocedasticity > self.alpha:
-            print('1.2.3)'+GREEN+'Satisfies homoscedasticity'+RESET)
+            print('1.2.3)'+GREEN+f'Satisfies homoscedasticity ({round(value_homocedasticity,4)} > {self.alpha})'+RESET)
             enable_homocedasticity = True
         else:
-            print('1.2.3)'+RED+ 'Does not satisfies homoscedasticity'+RESET)
+            print('1.2.3)'+RED+ f'Does not satisfies homoscedasticity ({round(value_homocedasticity,4)} > {self.alpha})' +RESET)
             enable_homocedasticity = False
 
         return enable_homocedasticity
@@ -115,23 +115,24 @@ class Metrics:
         #1) validation:
         if value_independence <2:
             if value_independence >value_dU:
-                print('1.2.4)'+GREEN+ 'Satisfies independence'+RESET)
+                print('1.2.4)'+GREEN+ f'Satisfies independence ({round(value_independence,4)} > dU)'+RESET)
                 enable_independence  = True
-            elif value_independence <value_dL:
-                print('1.2.4)'+RED+'Does not satisfies independence'+RESET)
+            elif value_independence < value_dL:
+                print('1.2.4)'+RED+ f'Does not satisfies independence ({round(value_independence,4)} < dL)'+RESET)
                 enable_independence  = False
             else:
-                print('1.2.4)'+RED+"Test is inconclusive"+RESET)
+                print('1.2.4)'+RED+ f'Test is inconclusive ({round(value_independence,4)} > dU)' +RESET)
                 enable_independence  = False
+
         elif value_independence >2:
             if (4-value_independence)>value_dU:
-                print('1.2.4)'+GREEN+ 'Satisfies independence'+RESET)
+                print('1.2.4)'+GREEN+ f'Satisfies independence ({round(4-value_independence,4)} > dU)'+RESET)
                 enable_independence  = True
             elif (4-value_independence)<value_dL:
-                print('1.2.4)'+RED+'Does not satisfies independence'+RESET)
+                print('1.2.4)'+RED+f'Does not satisfies independence ({round(4-value_independence,4)} < value_dL)'+RESET)
                 enable_independence  = False
             else:
-                print('1.2.4)'+RED+"Test is inconclusive"+RESET)
+                print('1.2.4)'+RED+f"Test is inconclusive ({round(4-value_independence,4)} > dU)"+RESET)
                 enable_independence  = False
 
         return enable_independence

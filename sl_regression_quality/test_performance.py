@@ -20,8 +20,13 @@ from global_constants import BLUE,  RESET, RED, YELLOW
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-def regression_quality(df_x,df_y,alpha,dL,dU,enable_outlier=True):
+def regression_quality_performance(df_x,df_y,alpha,dL,dU,enable_outlier=True,return_time=True):
 
+    elapsed_time_outlier = -10
+    elapsed_time_metrics = -10
+    elapsed_time_parameters = -10
+
+    #--------------------------------------------------------------------------------------
     space_1 = '            '
     space_2 = '                  '
     art_text1 = text2art("SIMPLE    LINEAR") 
@@ -31,7 +36,7 @@ def regression_quality(df_x,df_y,alpha,dL,dU,enable_outlier=True):
     print(art_text1)
     print(art_text2)
     print(art_text3)
-   
+    
 
     #------------------------------------------------------------------------------------
     # first organize data: 
@@ -99,3 +104,7 @@ def regression_quality(df_x,df_y,alpha,dL,dU,enable_outlier=True):
 
     else:
         print(RED +'Not all assumptions were met'+RESET)
+
+    #-----------------------------------------------------------------------------------------------------
+    if return_time: 
+        return elapsed_time_outlier, elapsed_time_metrics, elapsed_time_parameters

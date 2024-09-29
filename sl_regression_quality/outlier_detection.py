@@ -6,7 +6,7 @@ import statsmodels.api as sm
 import numpy as np
 import matplotlib.pyplot as plt 
 
-from .global_constants import GREEN, RED,  RESET
+from global_constants import GREEN, RED,  RESET
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
@@ -23,13 +23,13 @@ class OutlierDetection:
         self.standardized_residuals = None
         self.studentized_residuals = None
         self.enable_outlier = False
-
+    #---------------------------------------------------------------------------------------------------------------
     def linear_regression(self):
 
         x_one = sm.add_constant(self.data_x)
         self.model_RLS=sm.OLS(self.data_y, x_one).fit()
         self.model_RLS.summary()
-
+    #---------------------------------------------------------------------------------------------------------------
     def outlier_detection(self):
 
         #1) linear regression:
@@ -58,7 +58,7 @@ class OutlierDetection:
         if self.enable_outlier:
             print('----'*20)
             print('Contains outlier: ')
-            print(f'The following indices'+RED+ f'{index_outlier}'+RESET +'of the data x and y are deleted')
+            print(f'The following indices'+RED+ f'{index_outlier}'+RESET +' of the data x and y are deleted.')
 
             new_x, new_y = self.elimination_outliers(index_outlier)
 
@@ -67,10 +67,7 @@ class OutlierDetection:
             print('----'*20)
             print(GREEN+'Does not contain outlier'+RESET)
             return self.data_x, self.data_y
-
-
-
-
+    #---------------------------------------------------------------------------------------------------------------
 
     def elimination_outliers(self,idx_outlier):
 
@@ -79,6 +76,7 @@ class OutlierDetection:
         new_data_x = np.delete(self.data_x, idx_outlier, axis=0)
         new_data_y = np.delete(self.data_y, idx_outlier, axis=0)
         return new_data_x, new_data_y
+    #---------------------------------------------------------------------------------------------------------------
 
     def run(self):
 
@@ -86,32 +84,30 @@ class OutlierDetection:
 
         return x_final, y_final
 
-
+    #---------------------------------------------------------------------------------------------------------------
     def visualization(self):
 
         #run outlier detection:
         self.outlier_detection()
 
 
-        #visualization
-        plt.scatter(self.data_x,self.standardized_residuals)
-        plt.xlabel('x', fontsize=18)
-        plt.ylabel('Standardized Residuals', fontsize=18)
-        plt.axhline(y=-2, color='black', linestyle='--', linewidth=1)
-        plt.axhline(y=2, color='black', linestyle='--', linewidth=1)
-        plt.axhline(y=0, color='black', linestyle='--', linewidth=1)
-        plt.xticks(fontsize=14)
-        plt.yticks(fontsize=14)
-        plt.show()
-
-
-
         plt.scatter(self.data_x,self.studentized_residuals)
         plt.xlabel('x', fontsize=18)
         plt.ylabel('Studentized Residuals', fontsize=18)
         plt.axhline(y=0, color='black', linestyle='--', linewidth=1)
-        plt.axhline(y=-2, color='black', linestyle='--', linewidth=1)
-        plt.axhline(y=2, color='black', linestyle='--', linewidth=1)
+        plt.axhline(y=-3, color='black', linestyle='--', linewidth=1)
+        plt.axhline(y=3, color='black', linestyle='--', linewidth=1)
+        plt.xticks(fontsize=14)
+        plt.yticks(fontsize=14)
+        plt.show()
+
+                #visualization
+        plt.scatter(self.data_x,self.standardized_residuals)
+        plt.xlabel('x', fontsize=18)
+        plt.ylabel('Standardized Residuals', fontsize=18)
+        plt.axhline(y=-3, color='black', linestyle='--', linewidth=1)
+        plt.axhline(y=3, color='black', linestyle='--', linewidth=1)
+        plt.axhline(y=0, color='black', linestyle='--', linewidth=1)
         plt.xticks(fontsize=14)
         plt.yticks(fontsize=14)
         plt.show()
