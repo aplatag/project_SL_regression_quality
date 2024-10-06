@@ -27,6 +27,8 @@ def regression_quality_performance(df_x,df_y,alpha,dL,dU,enable_outlier=True,ret
     elapsed_time_metrics = -10
     elapsed_time_parameters = -10
 
+    ram_outlier,ram_metrics,ram_parameters = -10,-10,-10
+
     #--------------------------------------------------------------------------------------
     space_1 = '            '
     space_2 = '                  '
@@ -114,6 +116,6 @@ def regression_quality_performance(df_x,df_y,alpha,dL,dU,enable_outlier=True,ret
 
     #-----------------------------------------------------------------------------------------------------
     if return_time: 
-        return elapsed_time_outlier, elapsed_time_metrics, elapsed_time_parameters,ram_outlier,ram_metrics,ram_parameters
+        return (elapsed_time_outlier, elapsed_time_metrics, elapsed_time_parameters),(ram_outlier,ram_metrics,ram_parameters)
     
     print(BLUE+'===='*20+RESET)
