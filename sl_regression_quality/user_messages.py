@@ -1,4 +1,4 @@
-from global_constants import CYAN,  RESET, BLUE, GREEN
+from .global_constants import CYAN,  RESET, BLUE, GREEN
 
 
 def parameters_messages(accuracy,resolution,sensitivity,range):

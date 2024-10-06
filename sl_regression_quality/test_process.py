@@ -1,11 +1,11 @@
-from main_routine import regression_quality
+from .main_routine import regression_quality
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd 
 
-from vis_outlier import visualization_residuals
-from vis_norma import visualization_norm
-from test_performance import regression_quality_performance
+from .vis_outlier import visualization_residuals
+from .vis_norma import visualization_norm
+from .test_performance import regression_quality_performance
 
 
 ### CREATION OF DATABASE
@@ -34,7 +34,7 @@ df_x = pd.DataFrame({
     'Columna3': x.reshape(-1)
 })
 
-df_x.to_csv("X_test1.csv", index=False)
+
 
 df_y = pd.DataFrame({
     'Columna1': y.reshape(-1),
@@ -42,6 +42,7 @@ df_y = pd.DataFrame({
     'Columna3': y.reshape(-1)
 })
 
+df_x.to_csv("X_test1.csv", index=False)
 df_y.to_csv("Y_test1.csv", index=False)
 
 

@@ -17,7 +17,7 @@ import numpy as np
 from statsmodels.compat import lzip
 import statsmodels.stats.api as sms
 from statsmodels.stats.stattools import durbin_watson
-from global_constants import GREEN, RED,  RESET
+from .global_constants import GREEN, RED,  RESET
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

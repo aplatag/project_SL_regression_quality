@@ -1,6 +1,6 @@
 import numpy as np 
 
-from outlier_detection import OutlierDetection
+from .outlier_detection import OutlierDetection
 
 
 

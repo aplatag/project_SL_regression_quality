@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt 
 from scipy import stats
 import numpy as np 
-from outlier_detection import OutlierDetection
+from .outlier_detection import OutlierDetection
 
 
 def visualization_norm(df_x,df_y):

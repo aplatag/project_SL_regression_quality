@@ -6,7 +6,7 @@ import statsmodels.api as sm
 import numpy as np
 import matplotlib.pyplot as plt 
 
-from global_constants import GREEN, RED,  RESET
+from .global_constants import GREEN, RED,  RESET
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
